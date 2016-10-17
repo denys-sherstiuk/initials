@@ -3,25 +3,26 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(void) 
+int main(void)
 {
     string name = GetString();
-    char a[100];
-	int x = 0;
-	    
-	for (int i = 0, n = strlen(name); i < n; i++) 
-	{
-	   if ((i == 0) && (name[i] != ' '))
-	   {
-	        a[x] = toupper(name[i]);
-	        x++;
-	   }
-	   if ((name[i] == ' ') && (name[i+1] != ' ')) 
-	   {
-	        a[x] = toupper(name[i+1]);
-	        x++;
-	   }
-	}
-	    
-	printf("%s \n", a);
+    
+    // print first character
+    printf("%c", toupper(name[0]));
+   
+    for ( int i = 0, n = strlen(name); i < n; i++)
+    {
+        // check space and end of characters
+        if ( name[i] == ' ' && name[i + 1] != '\0') 
+        {
+            // print the rest of the initials and increment
+            printf("%c",toupper(name[i + 1])); 
+            i++;
+      
+        }
+       
+    }
+    
+    printf("\n"); 
 }
+
